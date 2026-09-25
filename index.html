@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador PCO - Uso Adecuado de Canecas</title>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <div class="header">
+            <h1>🔬 Simulador del Modelo Científico</h1>
+            <div class="sub">
+                Uso adecuado de las canecas de reciclaje — PCO Reto 4
+            </div>
+            <div class="badge">
+                COLABORADORES DEL PLANETA · IED VENECIA · 1102
+            </div>
+        </div>
+
+        <div class="grid-principal">
+
+            <div class="panel-modelo">
+                <h2>📐 Modelo matemático (regresión lineal)</h2>
+
+                <div class="ecuacion" id="ecuacion">
+                    Y = 0 X + 0
+                </div>
+
+                <div class="parametros">
+
+                    <div class="parametro">
+                        <div class="label">Pendiente (m)</div>
+                        <div class="val" id="valor-pendiente">0</div>
+                    </div>
+
+                    <div class="parametro">
+                        <div class="label">Intercepto (b)</div>
+                        <div class="val" id="valor-intercepto">0</div>
+                    </div>
+
+                    <div class="parametro">
+                        <div class="label">R²</div>
+                        <div class="val" id="valor-r2">0</div>
+                    </div>
+
+                    <div class="parametro">
+                        <div class="label">Registros</div>
+                        <div class="val" id="valor-n">0</div>
+                    </div>
+
+                </div>
+
+                <div class="interpretacion" id="interpretacion">
+                    Calculando modelo a partir de los datos...
+                </div>
+            </div>
+
+            <div class="panel-simulador">
+
+                <h2>🎛️ Explorar escenarios</h2>
+
+                <div class="slider-container">
+
+                    <div class="slider-header">
+                        <span>X = Tiempo (minutos)</span>
+                        <span class="x-valor" id="x-display">0</span>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="slider-x"
+                        min="0"
+                        max="35"
+                        value="20"
+                        step="1"
+                    >
+
+                </div>
+
+                <div class="resultado-y">
+                    <div class="label">
+                        Y = Conteo de residuos predicho
+                    </div>
+
+                    <div class="numero" id="y-display">
+                        0
+                    </div>
+
+                    <div class="unidad">
+                        residuos
+                    </div>
+                </div>
+
+                <div class="contexto-real" id="contexto">
+                    Contexto: jornada mañana, 1000 personas.
+                </div>
+
+                <div class="instruccion">
+                    Mueve el deslizador para predecir el conteo según el tiempo
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="escenarios" id="escenarios"></div>
+
+        <div class="panel-grafica">
+            <h2>📈 Gráfica de dispersión + línea de tendencia</h2>
+            <canvas id="grafica" width="1000" height="350"></canvas>
+        </div>
+
+        <div class="panel-tabla">
+
+            <h2>📋 Tabla de datos reales + predicción</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Tiempo (X)</th>
+                        <th>Conteo observado (Y)</th>
+                        <th>Conteo predicho (Ŷ)</th>
+                        <th>Residuo (Y - Ŷ)</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabla-datos"></tbody>
+
+            </table>
+
+        </div>
+
+        <div class="acciones">
+
+            <button
+                class="btn btn-primario"
+                onclick="exportarReporte()">
+                📥 Exportar reporte completo
+            </button>
+
+            <button
+                class="btn btn-secundario"
+                onclick="mostrarAyuda()">
+                ❓ Cómo usar en la bitácora
+            </button>
+
+            <button
+                class="btn btn-info"
+                onclick="resetearSlider()">
+                🔄 Volver a X=20 min
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
